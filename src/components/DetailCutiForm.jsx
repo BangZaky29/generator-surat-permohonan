@@ -1,7 +1,30 @@
-import React from 'react';
-import '../styles/FormSection.css';
-
 const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection }) => {
+  // Helper function untuk convert date dari input type="date" ke dd/mm/yyyy
+  const handleDateChange = (e) => {
+    const { name, value } = e.target;
+    if (value) {
+      // Convert dari yyyy-mm-dd ke dd/mm/yyyy
+      const [year, month, day] = value.split('-');
+      const formattedDate = `${day}/${month}/${year}`;
+      handleInputChange({ target: { name, value: formattedDate } });
+    } else {
+      handleInputChange(e);
+    }
+  };
+
+  // Helper function untuk convert dd/mm/yyyy ke yyyy-mm-dd untuk input type="date"
+  const getDateValue = (dateString) => {
+    if (!dateString) return '';
+    if (dateString.includes('/')) {
+      const [day, month, year] = dateString.split('/');
+      // Pastikan format 2 digit untuk day dan month
+      const paddedDay = day.padStart(2, '0');
+      const paddedMonth = month.padStart(2, '0');
+      return `${year}-${paddedMonth}-${paddedDay}`;
+    }
+    return dateString;
+  };
+
   return (
     <div className="form-section">
       <div 
@@ -56,10 +79,15 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
                 type="date"
                 id="mulaiTanggal"
                 name="mulaiTanggal"
-                value={formData.mulaiTanggal}
-                onChange={handleInputChange}
+                value={getDateValue(formData.mulaiTanggal)}
+                onChange={handleDateChange}
                 required
               />
+              {formData.mulaiTanggal && (
+                <small style={{ color: '#666', fontSize: '12px', marginTop: '4px', display: 'block' }}>
+                  Format: {formData.mulaiTanggal}
+                </small>
+              )}
             </div>
             
             <div className="form-group">
@@ -70,10 +98,15 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
                 type="date"
                 id="selesaiTanggal"
                 name="selesaiTanggal"
-                value={formData.selesaiTanggal}
-                onChange={handleInputChange}
+                value={getDateValue(formData.selesaiTanggal)}
+                onChange={handleDateChange}
                 required
               />
+              {formData.selesaiTanggal && (
+                <small style={{ color: '#666', fontSize: '12px', marginTop: '4px', display: 'block' }}>
+                  Format: {formData.selesaiTanggal}
+                </small>
+              )}
             </div>
           </div>
           

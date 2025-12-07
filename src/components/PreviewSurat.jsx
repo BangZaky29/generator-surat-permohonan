@@ -5,9 +5,18 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
 
   const formatDate = (dateString) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return date.toLocaleDateString('id-ID', options);
+    
+    if (dateString.includes('/')) {
+      const [day, month, year] = dateString.split('/');
+      const monthNames = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      ];
+      const monthIndex = parseInt(month) - 1;
+      return `${parseInt(day)} ${monthNames[monthIndex]} ${year}`;
+    }
+    
+    return dateString;
   };
 
   return (
@@ -23,16 +32,15 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
         </button>
       </div>
       
-      <div className="preview-content" ref={previewRef} id="surat-content">
+      <div className="preview-content" ref={previewRef}>
         <div className="surat-paper">
-          {/* Header Surat - Penerima */}
           <div className="surat-header-info">
-            <p className="text-left">
-              Kepada
+            <p>
+              Kepada<br />
               Yth.<br />
               {formData.pejabatPemberiCuti || '___________'}<br />
               di<br />
-              <span className="indent-small">Tempat</span>
+              <span style={{ marginLeft: '20px' }}>Tempat</span>
             </p>
           </div>
 
@@ -44,8 +52,8 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
             <table className="surat-table">
               <tbody>
                 <tr>
-                  <td width="150">Nama</td>
-                  <td width="20">:</td>
+                  <td style={{ width: '120px' }}>Nama</td>
+                  <td style={{ width: '20px' }}>:</td>
                   <td>{formData.nama || '___________'}</td>
                 </tr>
                 <tr>
@@ -68,11 +76,11 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
               <strong>{formatDate(formData.selesaiTanggal) || '___________'}</strong>.
             </p>
 
-            <p className="surat-content-text">
+            <p className="surat-content-text" style={{ textIndent: 0, marginBottom: '8px' }}>
               Selama menjalankan cuti, alamat saya adalah:
             </p>
 
-            <p className="surat-content-text">
+            <p className="surat-content-text" style={{ textIndent: 0, marginTop: '0', marginBottom: '12px' }}>
               {formData.alamatSelamaCuti || '___________'}
             </p>
 
@@ -80,7 +88,6 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
               Demikian surat permohonan ini saya buat untuk dapat dipertimbangkan sebagaimana mestinya.
             </p>
 
-            {/* Footer Surat - Tempat, Tanggal dan Tanda Tangan */}
             <div className="surat-signature">
               <p className="signature-place-date">
                 {formData.tempatSurat || '___________'}, {formatDate(formData.tanggalSurat) || '___________'}

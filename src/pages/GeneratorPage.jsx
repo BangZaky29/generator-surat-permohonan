@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import html2pdf from 'html2pdf.js';
 import DataDiriForm from '../components/DataDiriForm';
 import DetailCutiForm from '../components/DetailCutiForm';
 import InformasiSuratForm from '../components/InformasiSuratForm';
@@ -42,7 +43,6 @@ const GeneratorPage = () => {
   };
 
   const handleBuatSurat = () => {
-    // Validasi form
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
       'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
@@ -77,19 +77,70 @@ const GeneratorPage = () => {
     }
   };
 
-  const handleDownloadPDF = () => {
-    // Implementasi download PDF menggunakan window.print()
-    // Atau bisa menggunakan library seperti jsPDF atau html2pdf
-    const printContent = document.getElementById('surat-content');
-    const watermark = printContent.querySelector('.watermark');
-    
-    // Sembunyikan watermark saat print
-    if (watermark) watermark.style.display = 'none';
-    
-    window.print();
-    
-    // Tampilkan kembali watermark setelah print
-    if (watermark) watermark.style.display = 'block';
+  const handleDownloadPDF = async () => {
+    const requiredFields = [
+      'nama', 'email', 'jabatan', 'alamat',
+      'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
+      'alamatSelamaCuti', 'tempatSurat', 'tanggalSurat'
+    ];
+
+    const emptyFields = requiredFields.filter(field => !formData[field]);
+
+    if (emptyFields.length > 0) {
+      alert('Mohon lengkapi semua field sebelum download PDF!');
+      return;
+    }
+
+    try {
+      const element = document.querySelector('.surat-paper');
+      const watermark = document.querySelector('.watermark');
+      const previewHeader = document.querySelector('.preview-header');
+      
+      if (!element) {
+        throw new Error('Element surat tidak ditemukan');
+      }
+
+      if (watermark) watermark.style.display = 'none';
+      if (previewHeader) previewHeader.style.display = 'none';
+
+      const fileName = `Surat_Cuti_${formData.nama.replace(/\s+/g, '_')}_${new Date().getTime()}.pdf`;
+
+      const opt = {
+        margin: [15, 15, 15, 15],
+        filename: fileName,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          letterRendering: true,
+          logging: false,
+          scrollY: -window.scrollY,
+          scrollX: 0
+        },
+        jsPDF: { 
+          unit: 'mm', 
+          format: 'a4', 
+          orientation: 'portrait'
+        },
+        pagebreak: { mode: ['avoid-all', 'css'] }
+      };
+
+      await html2pdf().set(opt).from(element).save();
+
+      if (watermark) watermark.style.display = 'block';
+      if (previewHeader) previewHeader.style.display = 'flex';
+
+      alert('PDF berhasil diunduh!');
+      
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Terjadi kesalahan saat membuat PDF. Silakan coba lagi.');
+      
+      const watermark = document.querySelector('.watermark');
+      const previewHeader = document.querySelector('.preview-header');
+      if (watermark) watermark.style.display = 'block';
+      if (previewHeader) previewHeader.style.display = 'flex';
+    }
   };
 
   return (

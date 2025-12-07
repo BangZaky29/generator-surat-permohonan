@@ -60,32 +60,41 @@
 }
 
 /* ==========================================
-   SURAT PAPER
+   SURAT PAPER - OPTIMIZED FOR PDF
    ========================================== */
 .surat-paper {
   background: white;
-  padding: 60px 80px;
+  padding: 40px 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  min-height: 550px;
-  font-size: 12pt;
-  line-height: 1.8;
-  color: var(--text-dark);
+  min-height: auto;
+  max-width: 210mm;
+  margin: 0 auto;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #000000;
   font-family: 'Times New Roman', Times, serif;
+  position: relative;
 }
 
 .surat-header-info {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
+  page-break-after: avoid;
+}
+
+.surat-header-info p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 .text-left {
   text-align: left;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 .text-right {
   text-align: right;
-  line-height: 1.8;
+  line-height: 1.5;
 }
 
 .indent {
@@ -104,55 +113,70 @@
 }
 
 .surat-opening {
-  margin-bottom: 20px;
-  text-align: justify;
+  margin-bottom: 12px;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .surat-table {
   width: 100%;
-  margin: 20px 0 30px 0;
+  margin: 12px 0 20px 0;
   border-collapse: collapse;
+  page-break-inside: avoid;
 }
 
 .surat-table td {
-  padding: 4px 0;
+  padding: 3px 0;
   vertical-align: top;
+  line-height: 1.5;
 }
 
 .surat-content-text {
-  margin: 15px 0;
+  margin: 12px 0;
   text-align: justify;
-  text-indent: 40px;
+  text-indent: 50px;
+  line-height: 1.6;
+  page-break-inside: avoid;
+}
+
+.surat-content-text strong {
+  font-weight: bold;
 }
 
 /* ==========================================
-   SIGNATURE
+   SIGNATURE SECTION - NO PAGE BREAK
    ========================================== */
 .surat-signature {
-  margin-top: 50px;
-  text-align: left;
-  margin-left: 60%;
+  margin-top: 30px;
+  margin-left: 55%;
+  page-break-inside: avoid;
+  break-inside: avoid;
 }
 
 .signature-place-date {
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   text-align: left;
+  line-height: 1.5;
 }
 
 .signature-closing {
-  margin-bottom: 10px;
+  margin-bottom: 3px;
+  margin-top: 8px;
   text-align: left;
+  line-height: 1.5;
 }
 
 .signature-space {
-  height: 80px;
-  margin: 10px 0;
+  height: 50px;
+  margin: 8px 0;
 }
 
 .signature-name {
-  font-weight: 600;
+  font-weight: normal;
   text-decoration: underline;
   text-align: left;
+  line-height: 1.5;
+  margin-top: 5px;
 }
 
 /* ==========================================
@@ -193,22 +217,15 @@
 }
 
 /* ==========================================
-   PRINT STYLES - UNTUK PDF
+   PDF PRINT STYLES
    ========================================== */
 @media print {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
   .preview-container {
     box-shadow: none;
     border-radius: 0;
   }
   
-  .preview-header,
-  .btn-download-pdf,
-  .watermark {
+  .preview-header {
     display: none !important;
   }
   
@@ -222,19 +239,22 @@
   .surat-paper {
     box-shadow: none;
     border-radius: 0;
-    padding: 40px 60px;
-    margin: 0;
+    padding: 20mm 25mm;
     page-break-inside: avoid;
+    max-width: none;
   }
   
-  /* Remove Times New Roman for better PDF rendering */
-  .surat-paper {
-    font-family: Arial, sans-serif;
+  .watermark {
+    display: none !important;
   }
   
-  @page {
-    margin: 2cm;
-    size: A4;
+  .surat-signature {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .surat-table {
+    page-break-inside: avoid;
   }
 }
 
@@ -249,7 +269,7 @@
   
   .surat-paper {
     padding: 30px 20px;
-    font-size: 11pt;
+    font-size: 10pt;
   }
   
   .preview-content {
