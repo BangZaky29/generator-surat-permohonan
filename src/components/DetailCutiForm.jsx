@@ -124,6 +124,21 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
               required
             />
           </div>
+
+          <div className="form-group full-width">
+            <label htmlFor="AlasanCuti">
+              Alasan Cuti  <span className="required">*</span>
+            </label>
+            <textarea
+              id="AlasanCuti"
+              name="AlasanCuti"
+              value={formData.AlasanCuti}
+              onChange={handleInputChange}
+              placeholder="Alasan Cuti (Contoh: sakit, keluarga, dll)"
+              rows="5"
+              required
+            />
+          </div>
         </div>
       )}
     </div>

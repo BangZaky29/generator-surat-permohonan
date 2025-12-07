@@ -84,6 +84,10 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
               {formData.alamatSelamaCuti || '___________'}
             </p>
 
+            <p className="surat-content-text" style={{ textIndent: 0, marginTop: '0', marginBottom: '12px' }}>
+              Alasan saya cuti  {formData.AlasanCuti || '___________'}
+            </p>
+
             <p className="surat-content-text">
               Demikian surat permohonan ini saya buat untuk dapat dipertimbangkan sebagaimana mestinya.
             </p>

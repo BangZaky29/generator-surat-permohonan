@@ -17,6 +17,7 @@ const GeneratorPage = () => {
     mulaiTanggal: '',
     selesaiTanggal: '',
     alamatSelamaCuti: '',
+    AlasanCuti: '',
     tempatSurat: '',
     tanggalSurat: ''
   });
@@ -46,7 +47,7 @@ const GeneratorPage = () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
       'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
-      'alamatSelamaCuti', 'tempatSurat', 'tanggalSurat'
+      'alamatSelamaCuti', 'AlasanCuti', 'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);
@@ -71,6 +72,7 @@ const GeneratorPage = () => {
         mulaiTanggal: '',
         selesaiTanggal: '',
         alamatSelamaCuti: '',
+        AlasanCuti: '',
         tempatSurat: '',
         tanggalSurat: ''
       });
@@ -81,7 +83,7 @@ const GeneratorPage = () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
       'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
-      'alamatSelamaCuti', 'tempatSurat', 'tanggalSurat'
+      'alamatSelamaCuti', 'AlasanCuti', 'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);
