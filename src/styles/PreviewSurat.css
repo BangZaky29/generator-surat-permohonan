@@ -1,0 +1,262 @@
+.preview-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+}
+
+.preview-header {
+  background: linear-gradient(135deg, #1976d2, #2196f3);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-download-pdf {
+  background: white;
+  color: #1976d2;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-download-pdf:hover {
+  background: var(--yellow-1);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   PREVIEW CONTENT
+   ========================================== */
+.preview-content {
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 600px;
+  max-height: 800px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* ==========================================
+   SURAT PAPER
+   ========================================== */
+.surat-paper {
+  background: white;
+  padding: 60px 80px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-height: 550px;
+  font-size: 12pt;
+  line-height: 1.8;
+  color: var(--text-dark);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.surat-header-info {
+  margin-bottom: 40px;
+}
+
+.text-left {
+  text-align: left;
+  line-height: 1.8;
+}
+
+.text-right {
+  text-align: right;
+  line-height: 1.8;
+}
+
+.indent {
+  margin-left: 40px;
+}
+
+.indent-small {
+  margin-left: 20px;
+}
+
+/* ==========================================
+   SURAT BODY
+   ========================================== */
+.surat-body {
+  margin-top: 20px;
+}
+
+.surat-opening {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.surat-table {
+  width: 100%;
+  margin: 20px 0 30px 0;
+  border-collapse: collapse;
+}
+
+.surat-table td {
+  padding: 4px 0;
+  vertical-align: top;
+}
+
+.surat-content-text {
+  margin: 15px 0;
+  text-align: justify;
+  text-indent: 40px;
+}
+
+/* ==========================================
+   SIGNATURE
+   ========================================== */
+.surat-signature {
+  margin-top: 50px;
+  text-align: left;
+  margin-left: 60%;
+}
+
+.signature-place-date {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.signature-closing {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.signature-space {
+  height: 80px;
+  margin: 10px 0;
+}
+
+.signature-name {
+  font-weight: 600;
+  text-decoration: underline;
+  text-align: left;
+}
+
+/* ==========================================
+   WATERMARK
+   ========================================== */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 100px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* ==========================================
+   SCROLLBAR STYLING
+   ========================================== */
+.preview-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+  background: var(--yellow-2);
+  border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow-1);
+}
+
+/* ==========================================
+   PRINT STYLES - UNTUK PDF
+   ========================================== */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .preview-container {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .preview-header,
+  .btn-download-pdf,
+  .watermark {
+    display: none !important;
+  }
+  
+  .preview-content {
+    padding: 0;
+    background: white;
+    max-height: none;
+    overflow: visible;
+  }
+  
+  .surat-paper {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 40px 60px;
+    margin: 0;
+    page-break-inside: avoid;
+  }
+  
+  /* Remove Times New Roman for better PDF rendering */
+  .surat-paper {
+    font-family: Arial, sans-serif;
+  }
+  
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+  .preview-container {
+    position: static;
+    margin-top: 20px;
+  }
+  
+  .surat-paper {
+    padding: 30px 20px;
+    font-size: 11pt;
+  }
+  
+  .preview-content {
+    max-height: 500px;
+  }
+  
+  .surat-signature {
+    margin-left: 50%;
+  }
+}

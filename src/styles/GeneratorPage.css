@@ -1,0 +1,45 @@
+.generator-page {
+  width: 100%;
+}
+
+.generator-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1200px) {
+  .generator-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .preview-column {
+    order: 2;
+  }
+  
+  .form-column {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .generator-page {
+    padding: 10px;
+  }
+}

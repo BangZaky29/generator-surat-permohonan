@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   CSS VARIABLES
+   ========================================== */
+:root {
+  --yellow-1: #FFD54A;
+  --yellow-2: #FFB300;
+  --yellow-light: #FFF9E6;
+  --gradient-yellow: linear-gradient(135deg, #FFD54A, #FFB300);
+  --text-dark: #333333;
+  --text-gray: #666666;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   GLOBAL RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+/* ==========================================
+   APP LAYOUT
+   ========================================== */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ==========================================
+   PRINT STYLES - HAPUS HEADER, FOOTER, FORM
+   ========================================== */
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+  
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hide everything except the letter content */
+  .app-header,
+  .app-footer,
+  .form-column,
+  .btn-download-pdf,
+  .preview-header,
+  .action-buttons {
+    display: none !important;
+  }
+  
+  .main-content {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+  }
+  
+  .generator-container {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .preview-column {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .preview-container {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .preview-content {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    background: white !important;
+    margin: 0;
+  }
+  
+  .watermark {
+    display: none !important;
+  }
+  
+  .surat-paper {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
