@@ -76,29 +76,35 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
               <strong>{formatDate(formData.selesaiTanggal) || '___________'}</strong>.
             </p>
 
-            <p className="surat-content-text" style={{ textIndent: 0, marginBottom: '8px' }}>
-              Selama menjalankan cuti, alamat saya adalah:
-            </p>
-
             <p className="surat-content-text" style={{ textIndent: 0, marginTop: '0', marginBottom: '12px' }}>
-              {formData.alamatSelamaCuti || '___________'}
-            </p>
-
-            <p className="surat-content-text" style={{ textIndent: 0, marginTop: '0', marginBottom: '12px' }}>
-              Alasan saya cuti  {formData.AlasanCuti || '___________'}
+              Saya tidak bisa masuk untuk bekerja seperti biasanya, dikarenakan {formData.AlasanCuti || '___________'}
             </p>
 
             <p className="surat-content-text">
               Demikian surat permohonan ini saya buat untuk dapat dipertimbangkan sebagaimana mestinya.
             </p>
 
-            <div className="surat-signature">
-              <p className="signature-place-date">
-                {formData.tempatSurat || '___________'}, {formatDate(formData.tanggalSurat) || '___________'}
-              </p>
-              <p className="signature-closing">Hormat Saya,</p>
-              <div className="signature-space"></div>
-              <p className="signature-name">{formData.nama || '___________'}</p>
+            {/* Dual Signature Section */}
+            <div className="dual-signature-wrapper">
+              {/* Left Signature - Pemohon */}
+              <div className="signature-box signature-left">
+                <p className="signature-place-hidden">
+                  {formData.tempatSurat || '___________'}, {formatDate(formData.tanggalSurat) || '___________'}
+                </p>
+                <p className="signature-closing">Hormat Saya,</p>
+                <div className="signature-space"></div>
+                <p className="signature-name">{formData.nama || '___________'}</p>
+              </div>
+
+              {/* Right Signature - Pejabat */}
+              <div className="signature-box signature-right">
+                <p className="signature-place-date">
+                  {formData.tempatSurat || '___________'}, {formatDate(formData.tanggalSurat) || '___________'}
+                </p>
+                <p className="signature-closing">Menyetujui,</p>
+                <div className="signature-space"></div>
+                <p className="signature-name">{formData.pejabatPemberiCuti || '___________'}</p>
+              </div>
             </div>
           </div>
         </div>

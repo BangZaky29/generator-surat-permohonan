@@ -16,7 +16,6 @@ const GeneratorPage = () => {
     lamaCuti: '',
     mulaiTanggal: '',
     selesaiTanggal: '',
-    alamatSelamaCuti: '',
     AlasanCuti: '',
     tempatSurat: '',
     tanggalSurat: ''
@@ -47,7 +46,7 @@ const GeneratorPage = () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
       'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
-      'alamatSelamaCuti', 'AlasanCuti', 'tempatSurat', 'tanggalSurat'
+      'AlasanCuti', 'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);
@@ -71,7 +70,6 @@ const GeneratorPage = () => {
         lamaCuti: '',
         mulaiTanggal: '',
         selesaiTanggal: '',
-        alamatSelamaCuti: '',
         AlasanCuti: '',
         tempatSurat: '',
         tanggalSurat: ''
@@ -82,8 +80,8 @@ const GeneratorPage = () => {
   const handleDownloadPDF = async () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
-      'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
-      'alamatSelamaCuti', 'AlasanCuti', 'tempatSurat', 'tanggalSurat'
+      'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal', 
+      'AlasanCuti', 'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);

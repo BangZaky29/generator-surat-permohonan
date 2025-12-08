@@ -109,21 +109,6 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
               )}
             </div>
           </div>
-          
-          <div className="form-group full-width">
-            <label htmlFor="alamatSelamaCuti">
-              Selama menjalankan cuti, alamat saya adalah: <span className="required">*</span>
-            </label>
-            <textarea
-              id="alamatSelamaCuti"
-              name="alamatSelamaCuti"
-              value={formData.alamatSelamaCuti}
-              onChange={handleInputChange}
-              placeholder="Alamat yang dapat dihubungi selama cuti"
-              rows="4"
-              required
-            />
-          </div>
 
           <div className="form-group full-width">
             <label htmlFor="AlasanCuti">

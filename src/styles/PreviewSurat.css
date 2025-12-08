@@ -144,13 +144,38 @@
 }
 
 /* ==========================================
-   SIGNATURE SECTION - NO PAGE BREAK
+   DUAL SIGNATURE SECTION - NO PAGE BREAK
    ========================================== */
-.surat-signature {
-  margin-top: 30px;
-  margin-left: 55%;
+.dual-signature-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   page-break-inside: avoid;
   break-inside: avoid;
+}
+
+.signature-box {
+  flex: 1;
+  max-width: 45%;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.signature-left {
+  text-align: left;
+}
+
+.signature-right {
+  margin-left: 100px;
+  text-align: left;
+}
+
+.signature-place-hidden {
+  visibility: hidden; /* Elemen tetap ada tapi tidak terlihat */
+  margin-bottom: 3px;
+  text-align: left;
+  line-height: 1.5;
 }
 
 .signature-place-date {
@@ -167,8 +192,8 @@
 }
 
 .signature-space {
-  height: 50px;
-  margin: 8px 0;
+  height: 60px;
+  margin: 8px;
 }
 
 .signature-name {
@@ -248,7 +273,12 @@
     display: none !important;
   }
   
-  .surat-signature {
+  .dual-signature-wrapper {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .signature-box {
     page-break-inside: avoid;
     break-inside: avoid;
   }
@@ -276,7 +306,17 @@
     max-height: 500px;
   }
   
-  .surat-signature {
-    margin-left: 50%;
+  .dual-signature-wrapper {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .signature-box {
+    max-width: 100%;
+  }
+  
+  .signature-left,
+  .signature-right {
+    text-align: left;
   }
 }
