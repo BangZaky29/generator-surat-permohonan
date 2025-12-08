@@ -14,8 +14,8 @@ const Header = () => {
           />
         </div>
         <div className="header-title">
-          <h1>Generator Surat Permohonan Cuti Tahunan</h1>
-          <p>Buat surat permohonan cuti dengan mudah dan cepat</p>
+          <h1>Generator Surat Permohonan</h1>
+          <p>Buat surat permohonan dengan mudah dan cepat</p>
         </div>
       </div>
     </header>

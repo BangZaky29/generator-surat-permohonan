@@ -70,8 +70,8 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
             </table>
 
             <p className="surat-content-text">
-              Dengan ini mengajukan permohonan Cuti Tahunan selama{' '}
-              <strong>{formData.lamaCuti || '___'}</strong>, terhitung mulai tanggal{' '}
+              Dengan ini mengajukan permohonan {formData.Perihal || '___________'}, 
+              <strong> selama {formData.lamaCuti || '___'}</strong>, terhitung mulai tanggal{' '}
               <strong>{formatDate(formData.mulaiTanggal) || '___________'}</strong> sampai dengan tanggal{' '}
               <strong>{formatDate(formData.selesaiTanggal) || '___________'}</strong>.
             </p>

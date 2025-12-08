@@ -32,7 +32,7 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
         onClick={() => toggleSection('detailCuti')}
       >
         <span className="section-icon">📅</span>
-        <h3>DETAIL CUTI TAHUNAN</h3>
+        <h3>DETAIL PERMOHONAN</h3>
         <span className="toggle-icon">{isExpanded ? '▲' : '▼'}</span>
       </div>
       
@@ -108,6 +108,21 @@ const DetailCutiForm = ({ formData, handleInputChange, isExpanded, toggleSection
                 </small>
               )}
             </div>
+          </div>
+
+          <div className="form-group full-width">
+            <label htmlFor="Perihal">
+              Perihal Permohonan  <span className="required">*</span>
+            </label>
+            <textarea
+              id="Perihal"
+              name="Perihal"
+              value={formData.Perihal}
+              onChange={handleInputChange}
+              placeholder="perihal permohonan"
+              rows="5"
+              required
+            />
           </div>
 
           <div className="form-group full-width">
