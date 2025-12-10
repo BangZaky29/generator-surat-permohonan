@@ -13,9 +13,6 @@ const GeneratorPage = () => {
     jabatan: '',
     alamat: '',
     pejabatPemberiCuti: '',
-    lamaCuti: '',
-    mulaiTanggal: '',
-    selesaiTanggal: '',
     AlasanCuti: '',
     Perihal: '',
     tempatSurat: '',
@@ -46,8 +43,8 @@ const GeneratorPage = () => {
   const handleBuatSurat = () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
-      'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal',
-      'AlasanCuti', 'Perihal', 'tempatSurat', 'tanggalSurat'
+      'pejabatPemberiCuti', 'AlasanCuti', 'Perihal', 
+      'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);
@@ -68,9 +65,6 @@ const GeneratorPage = () => {
         jabatan: '',
         alamat: '',
         pejabatPemberiCuti: '',
-        lamaCuti: '',
-        mulaiTanggal: '',
-        selesaiTanggal: '',
         AlasanCuti: '',
         Perihal: '',
         tempatSurat: '',
@@ -82,8 +76,8 @@ const GeneratorPage = () => {
   const handleDownloadPDF = async () => {
     const requiredFields = [
       'nama', 'email', 'jabatan', 'alamat',
-      'pejabatPemberiCuti', 'lamaCuti', 'mulaiTanggal', 'selesaiTanggal', 
-      'AlasanCuti', 'Perihal', 'tempatSurat', 'tanggalSurat'
+      'pejabatPemberiCuti', 'AlasanCuti', 'Perihal', 
+      'tempatSurat', 'tanggalSurat'
     ];
 
     const emptyFields = requiredFields.filter(field => !formData[field]);
@@ -105,7 +99,7 @@ const GeneratorPage = () => {
       if (watermark) watermark.style.display = 'none';
       if (previewHeader) previewHeader.style.display = 'none';
 
-      const fileName = `Surat_Cuti_${formData.nama.replace(/\s+/g, '_')}_${new Date().getTime()}.pdf`;
+      const fileName = `Surat_Permohonan_${formData.nama.replace(/\s+/g, '_')}_${new Date().getTime()}.pdf`;
 
       const opt = {
         margin: [15, 15, 15, 15],

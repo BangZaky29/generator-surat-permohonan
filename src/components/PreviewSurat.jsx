@@ -69,15 +69,24 @@ const PreviewSurat = ({ formData, onDownloadPDF }) => {
               </tbody>
             </table>
 
-            <p className="surat-content-text">
-              Dengan ini mengajukan permohonan {formData.Perihal || '___________'}, 
-              <strong> selama {formData.lamaCuti || '___'}</strong>, terhitung mulai tanggal{' '}
-              <strong>{formatDate(formData.mulaiTanggal) || '___________'}</strong> sampai dengan tanggal{' '}
-              <strong>{formatDate(formData.selesaiTanggal) || '___________'}</strong>.
+            {/* Paragraf Pertama - Perihal */}
+            <p className="surat-content-text" style={{ 
+              whiteSpace: 'pre-wrap',
+              wordWrap: 'break-word',
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word'
+            }}>
+              {formData.Perihal || '___________'}
             </p>
 
-            <p className="surat-content-text" style={{ textIndent: 0, marginTop: '0', marginBottom: '12px' }}>
-              Saya tidak bisa masuk untuk bekerja seperti biasanya, dikarenakan {formData.AlasanCuti || '___________'}
+            {/* Paragraf Kedua - Alasan */}
+            <p className="surat-content-text" style={{ 
+              whiteSpace: 'pre-wrap',
+              wordWrap: 'break-word',
+              overflowWrap: 'break-word',
+              wordBreak: 'break-word'
+            }}>
+              {formData.AlasanCuti || '___________'}
             </p>
 
             <p className="surat-content-text">
