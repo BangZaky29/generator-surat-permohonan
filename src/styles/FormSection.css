@@ -112,7 +112,7 @@
   border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
   color: var(--text-dark);
   transition: all 0.3s ease;
   background: white;
@@ -122,8 +122,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--yellow-2);
-  box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.1);
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .form-group textarea {

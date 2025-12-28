@@ -21,7 +21,7 @@
 }
 
 .logo-image {
-  height: 50px;
+  height: 100px;
   width: auto;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -65,4 +65,13 @@
   .logo-image {
     height: 40px;
   }
+}
+
+@media (max-width: 768px) {
+  .logo-image {
+  height: 100px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 }

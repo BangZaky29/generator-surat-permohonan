@@ -1,5 +1,5 @@
 .app-footer {
-  background: var(--yellow-light);
+  background: var(--gradient-primary);
   border-top: 2px solid var(--yellow-1);
   padding: 40px 0 20px;
   margin-top: 60px;
@@ -51,7 +51,7 @@
 
 .footer-copyright p {
   font-size: 14px;
-  color: var(--text-gray);
+  color: var(--text-dark);
 }
 
 /* ==========================================

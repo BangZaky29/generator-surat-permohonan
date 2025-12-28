@@ -1,18 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 /* ==========================================
    CSS VARIABLES
    ========================================== */
 :root {
-  --yellow-1: #FFD54A;
-  --yellow-2: #FFB300;
-  --yellow-light: #FFF9E6;
-  --gradient-yellow: linear-gradient(135deg, #FFD54A, #FFB300);
-  --text-dark: #333333;
-  --text-gray: #666666;
-  --border-color: #e0e0e0;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.15);
+  --yellow-1: var(--blue1);
+  --yellow-2: var(--blue2);
+  --yellow-light: var(--blue-50);
+  --gradient-yellow: var(--gradient-primary);
+  --text-dark: var(--text-dark);
+  --text-gray: var(--text-muted);
+  --border-color: var(--gray-200);
+  --shadow: var(--shadow-md);
+  --shadow-hover: var(--shadow-lg);
 }
 
 /* ==========================================
@@ -25,8 +23,8 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+  font-family: 'Inter', 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+  background: var(--gradient-primary);
   color: var(--text-dark);
   min-height: 100vh;
 }
@@ -38,6 +36,8 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: var(--gradient-primary);
+
 }
 
 .main-content {
