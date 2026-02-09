@@ -13,15 +13,21 @@ import './styles/PreviewSurat.css';
 import './styles/ActionButtons.css';
 import './styles/GeneratorPage.css';
 
+import SubscriptionGuard from './SubscriptionGuard';
+
+// ... existing imports ...
+
 const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <main className="main-content">
-        <GeneratorPage />
-      </main>
-      <Footer />
-    </div>
+    <SubscriptionGuard featureSlug="surat-permohonan">
+      <div className="App">
+        <Header />
+        <main className="main-content">
+          <GeneratorPage />
+        </main>
+        <Footer />
+      </div>
+    </SubscriptionGuard>
   );
 };
 
